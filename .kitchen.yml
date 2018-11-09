@@ -1,0 +1,18 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: shell
+
+platforms:
+  - name: nginx64 
+    driver:
+      box: nginx64 
+      provider: virtualbox
+
+verifier:
+  name: inspec
+
+suites:
+- name: default
