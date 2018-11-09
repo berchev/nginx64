@@ -1,12 +1,14 @@
 # nginx64
 ### Description:
-Downloading the content of this repo, you will have all needed configuration files required to build a **nginx box**.
+Downloading the content of this repo, you will have all needed configuration files required to build a **nginx box** and to test it with tool **Kitchen**
 
 ### Files:
 - `http/preseed.cfg` - file containing base configuration during the installation process
 - `scripts/provision.sh` - bash script which purpose is to configure the box environment
 - `template.json` - file which **Packer** use in order to create our box
-
+- `Gemfile` - Specify the the ruby version, and all gems needed for **Kitchen** test
+- `.kitchen.yml` - **Kitchen** configuration file
+- `test/integration/default/check_pkg.rb` - Script needed to **Kitchen** in order to test whether nginx is installed on your box. 
 
 ### Requiered software:
 In order to build your box you need to have **Packer** tool installed.
@@ -74,6 +76,26 @@ It can be any other name!
 11. Type: `vagrant halt` in order to poweroff the box
 12. Type: `vagrant destroy` in order to destroy the created box
 
-### TODO
+### Prepare your environment for **kitchen**
+1. Type: `sudo apt-get install rbenv ruby-dev ruby-bundler`
+2. add to your ~/.bash_profile: 
+  ```
+  eval "$(rbenv init -)"
+  true
+  export PATH="$HOME/.rbenv/bin:$PATH"
+```
+3. do `. ~/.bash_profile` in order to apply the changes made in .bash_profile 
 
-Travis test with kitchen
+4. Change to the directory with `Gemfile` and type: `bundle install` in order to install all needed gems for the test
+
+### Test your box with **kitchen** after creation:
+1. Edit `.kitchen.yml` according to your needs.
+Note that if your output box file is `ubuntu-1604-vbox.box` and your box name added to vagrant is `nginx64`, you do not need to change anything
+2. Type: `bundle exec kitchen list` to list the environment
+3. Type: `bundle exec kitchen converge` to build environment with kitchen
+4. Type: `bundle exec kitchen verify` to test the created kitchen environment
+5. Type: `bundle exec kitchen destroy` in order to destroy the created kitchen environment
+6. Type: `bundle exec kitchen test` in order to do steps from 3 to 5 in one command
+
+### TODO
+All tasks finished
