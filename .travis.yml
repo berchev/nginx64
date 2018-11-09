@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+- 2.5.1
+dist: xenial
+sudo: required
+gemfile:
+- Gemfile
+install:
+- apt-get update
+- apt-get install -y nginx 
+- apt-get install -y rbenv ruby-dev ruby-bundler
+script:
+- bundle install
+- bundle exec kitchen test
