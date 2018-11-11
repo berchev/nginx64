@@ -85,7 +85,7 @@ It can be any other name!
   eval "$(rbenv init -)"
   true
   export PATH="$HOME/.rbenv/bin:$PATH"
-```
+  ```
 - do `. ~/.bash_profile` in order to apply the changes made in .bash_profile 
 
 - Change to the directory with `Gemfile` and type: `bundle install` in order to install all needed gems for the test
