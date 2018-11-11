@@ -41,6 +41,10 @@ rmmod vboxguest
 apt-get purge -y virtualbox-ose-guest-x11 virtualbox-ose-guest-dkms virtualbox-ose-guest-utils
 apt-get install -y dkms
 
+#Install nginx
+sudo apt-get update
+sudo apt-get install -y nginx
+
 # Install the VirtualBox guest additions
 VBOX_VERSION=$(cat /home/vagrant/.vbox_version)
 VBOX_ISO=/home/vagrant/VBoxGuestAdditions_$VBOX_VERSION.iso
@@ -62,8 +66,3 @@ rm /var/lib/dhcp/*
 echo "Zeroing device to make space..."
 dd if=/dev/zero of=/EMPTY bs=1M
 rm -f /EMPTY
-
-#Install nginx
-sudo apt-get update
-sudo apt-get install -y nginx
-
