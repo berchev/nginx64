@@ -45,6 +45,9 @@ apt-get install -y dkms
 sudo apt-get update
 sudo apt-get install -y nginx
 
+#Install curl
+sudo apt-get install -y curl
+
 # Install the VirtualBox guest additions
 VBOX_VERSION=$(cat /home/vagrant/.vbox_version)
 VBOX_ISO=/home/vagrant/VBoxGuestAdditions_$VBOX_VERSION.iso
