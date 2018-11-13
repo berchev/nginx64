@@ -2,4 +2,6 @@
 Vagrantfile
 ubuntu-1604-vbox.box
 Gemfile.lock
-
+.vagrant/
+output-ubuntu-1604-vbox/
+packer_cache/
