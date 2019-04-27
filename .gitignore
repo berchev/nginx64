@@ -5,3 +5,5 @@ Gemfile.lock
 .vagrant/
 output-ubuntu-1604-vbox/
 packer_cache/
+nginx64-vbox.box
+nginx64-vmware.box
